@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CV de Rojo Valisoa ANDRIANANTENAINA, Odoo Expert à Tananarive (Madagascar). Expériences Materauto, Etech / Arkeup, Ingenosya, spécialiste Odoo v8-v16, développement et pilotage de projets ERP." />
+  <meta name="keywords" content="Rojo Valisoa,Madagascar Odoo,Tananarive Odoo expert,Materauto Odoo,Etech Odoo,Ingenosya Odoo,Odoo expert,Tananarive Odoo,Head of Software Development,Odoo Lead Developer,Senior Odoo Developer,Experienced Odoo Developer,Junior Odoo Developer,Apprentice Odoo Developer" />
+  <meta name="author" content="Rojo Valisoa ANDRIANANTENAINA" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Rojo Valisoa – Odoo Expert à Tananarive (Madagascar)" />
+  <meta property="og:description" content="CV de Rojo Valisoa, Odoo Expert à Tananarive (Madagascar). Expériences Materauto, Etech / Arkeup et Ingenosya." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="fr_FR" />
+  <title>CV Rojo Valisoa – Odoo Expert à Tananarive (Madagascar)</title>
+
+  <!-- Google Font pour titres type Odoo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cvPurple: '#714b67',
+          },
+          fontFamily: {
+            hand: ['Caveat', 'cursive'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Feuille A4 flottante dans le navigateur */
+    body {
+      background: #e5e7eb;
+    }
+
+    .cv-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      max-width: 100%;
+      margin: 2rem auto;
+    }
+
+    @media (max-width: 768px) {
+      .cv-sheet {
+        margin: 1rem auto;
+        width: 100%;
+        min-height: auto;
+      }
+    }
+
+    /* Mode impression A4 */
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    @media print {
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff !important;
+        cursor: auto;
+      }
+      main {
+        min-height: auto;
+        padding: 0;
+        display: block;
+      }
+      .cv-sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        box-shadow: none !important;
+        border-radius: 0;
+      }
+    }
+
+    /* Gestion du curseur personnalisé */
+    html,
+    body {
+      cursor: none;
+    }
+
+    /* Dans le CV : on remet le curseur normal */
+    #cv-container {
+      cursor: auto !important;
+    }
+
+    /* Curseur emoji (uniquement visible hors du CV) */
+    #magic-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      font-size: 40px;
+      z-index: 9999;
+      transition: opacity 0.1s ease-out;
+    }
+
+    /* Zone des étoiles */
+    #cursor-trail {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Étoiles scintillantes */
+    .cursor-dust {
+      position: absolute;
+      font-size: 18px;
+      color: #fbbf24;
+      opacity: 0.9;
+      animation: cursor-dust-fade 0.45s ease-out forwards;
+    }
+
+    @keyframes cursor-dust-fade {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800">
+  <main class="min-h-screen flex items-center justify-center p-4 md:p-8">
+    <div id="cv-container" class="cv-sheet w-full max-w-5xl bg-white shadow-2xl overflow-hidden relative">
+
+      <!-- Carrés décoratifs dans les 4 coins -->
+      <!-- Coin haut gauche -->
+      <div class="absolute left-4 top-4">
+        <!-- (0,0) grenat au coin -->
+        <div class="absolute left-0 top-0 h-8 w-8 rounded-md bg-[#714b67] shadow shadow-slate-300"></div>
+        <!-- (1,0) gris sur l’axe horizontal -->
+        <div class="absolute left-10 top-0 h-8 w-8 rounded-md bg-[#e3e5e8] shadow shadow-slate-300"></div>
+        <!-- (0,1) gris sur l’axe vertical (vers le bas) -->
+        <div class="absolute left-0 top-10 h-8 w-8 rounded-md bg-[#f3f4f6] shadow shadow-slate-300"></div>
+      </div>
+
+      <!-- Coin haut droit -->
+      <div class="absolute right-4 top-4">
+        <!-- (0,0) grenat au coin -->
+        <div class="absolute right-0 top-0 h-8 w-8 rounded-md bg-[#714b67] shadow shadow-slate-300"></div>
+        <!-- (1,0) gris sur l’axe horizontal (vers l’intérieur) -->
+        <div class="absolute right-10 top-0 h-8 w-8 rounded-md bg-[#e3e5e8] shadow shadow-slate-300"></div>
+        <!-- (0,1) gris sur l’axe vertical (vers le bas) -->
+        <div class="absolute right-0 top-10 h-8 w-8 rounded-md bg-[#f3f4f6] shadow shadow-slate-300"></div>
+      </div>
+
+      <!-- Coin bas gauche -->
+      <div class="absolute left-4 bottom-4">
+        <!-- (0,0) grenat au coin -->
+        <div class="absolute left-0 bottom-0 h-8 w-8 rounded-md bg-[#714b67] shadow shadow-slate-300"></div>
+        <!-- (1,0) gris sur l’axe horizontal -->
+        <div class="absolute left-10 bottom-0 h-8 w-8 rounded-md bg-[#e3e5e8] shadow shadow-slate-300"></div>
+        <!-- (0,1) gris sur l’axe vertical (vers le haut) -->
+        <div class="absolute left-0 bottom-10 h-8 w-8 rounded-md bg-[#f3f4f6] shadow shadow-slate-300"></div>
+      </div>
+
+      <!-- Coin bas droit -->
+      <div class="absolute right-4 bottom-4">
+        <!-- (0,0) grenat au coin -->
+        <div class="absolute right-0 bottom-0 h-8 w-8 rounded-md bg-[#714b67] shadow shadow-slate-300"></div>
+        <!-- (1,0) gris sur l’axe horizontal (vers l’intérieur) -->
+        <div class="absolute right-10 bottom-0 h-8 w-8 rounded-md bg-[#e3e5e8] shadow shadow-slate-300"></div>
+        <!-- (0,1) gris sur l’axe vertical (vers le haut) -->
+        <div class="absolute right-0 bottom-10 h-8 w-8 rounded-md bg-[#f3f4f6] shadow shadow-slate-300"></div>
+      </div>
+
+      <div class="px-6 md:px-10 pt-6 md:pt-10 pb-16 md:pb-20 space-y-8">
+        <!-- EN-TÊTE -->
+        <header class="flex flex-col md:flex-row gap-6 md:gap-10 items-start ml-8 md:ml-16">
+          <!-- PHOTO -->
+          <div class="shrink-0 flex items-center justify-center">
+            <div class="relative">
+              <!-- Carte photo -->
+              <div class="relative h-[205px] w-[150px] rounded-xl overflow-hidden bg-white shadow shadow-slate-300 border-4 border-white">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGLKYdXNFR3vA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700635088619?e=2147483647&v=beta&t=7afRIWZvbAnF84m4Byo4JMDgwL-JeCrQL75qX5eqdeQ" alt="Rojo Valisoa" class="h-full w-full object-cover" />
+              </div>
+              <!-- Switch langue -->
+              <div class="mt-3 flex justify-center gap-2 text-xs">
+                <button type="button" onclick="switchCvLang('fr')" id="btn-lang-fr" class="px-3 py-1 rounded-full border border-[#714b67] bg-[#714b67] text-white font-semibold shadow-sm">
+                  Français
+                </button>
+                <button type="button" onclick="switchCvLang('en')" id="btn-lang-en" class="px-3 py-1 rounded-full border border-slate-300 bg-white text-slate-700 font-semibold shadow-sm">
+                  English
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- INFOS PRINCIPALES -->
+          <div class="flex-1 space-y-4">
+            <!-- Nom -->
+            <div>
+              <!-- Nom principal -->
+              <p class="font-hand text-4xl sm:text-5xl leading-none [text-shadow:0_3px_6px_rgba(0,0,0,0.35)]">
+                <span class="text-[#714b67] font-bold">Rojo </span>
+                <span class="text-slate-500 font-bold">Valisoa</span>
+              </p>
+              <p class="mt-1 font-hand text-4xl sm:text-5xl tracking-wide text-[#714b67] font-bold [text-shadow:0_3px_6px_rgba(0,0,0,0.35)]">
+                ANDRIANANTENAINA
+              </p>
+
+              <!-- Badge poste -->
+              <div class="inline-flex mt-4 bg-[#f7b301] py-0 pr-4 pl-1 text-xl sm:text-2xl font-semibold italic text-white shadow shadow-slate-300 [text-shadow:0_2px_4px_rgba(0,0,0,0.35)]">
+                <span id="badge-title">Expert Odoo</span>
+              </div>
+            </div>
+
+            <!-- Texte de présentation -->
+            <p id="intro-text" class="text-xs sm:text-sm [text-shadow:0_2px_4px_rgba(0,0,0,0.35)]">Fort d’une solide expérience dans l’écosystème ERP, j’ai orienté ma carrière autour de la <span class='text-[#714b67] font-bold'>mise en œuvre</span>, de l’<span class='text-[#714b67] font-bold'>optimisation</span> et de l’<span class='text-[#714b67] font-bold'>industrialisation d’Odoo</span>. Curieux et autonome, j’interviens aussi bien sur la <span class='text-[#714b67] font-bold'>technique</span>, le <span class='text-[#714b67] font-bold'>fonctionnel</span> que sur la <span class='text-[#714b67] font-bold'>gestion d’équipe</span> pour améliorer les processus.</p>
+
+            <!-- CONTACTS -->
+            <div class="grid gap-3 md:gap-4 sm:grid-cols-3 text-xs md:text-sm">
+              <!-- Portable -->
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <div class="h-9 w-9 rounded-md bg-[#f3f4f5] absolute -left-1 top-1 shadow-md" style="box-shadow:0 3px 4px rgba(106,59,92,0.4);"></div>
+                  <div class="relative h-9 w-9 rounded-md border-l-4 border-l-[#714b67] border-t-4 border-t-[#714b67] border-r-4 border-r-[#2ecc71] border-b-4 border-b-[#2ecc71] bg-white flex items-center justify-center text-[#2ecc71] text-lg shadow-md">
+                    <svg xmlns='http://www.w3.org/2000/svg' class="h-5 w-5 text-[#2ecc71]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 5.5c0-.828.67-1.5 1.5-1.5h2.09c.63 0 1.2.39 1.41.98l1.01 2.7a1.5 1.5 0 0 1-.36 1.57l-1.4 1.4c1.14 2.27 3.01 4.14 5.28 5.28l1.4-1.4a1.5 1.5 0 0 1 1.57-.36l2.7 1.01c.59.21.98.78.98 1.41V20.5c0 .83-.67 1.5-1.5 1.5A18.5 18.5 0 0 1 2 5.5z"/></svg>
+                  </div>
+                </div>
+                <div>
+                  <p id="label-phone" class="font-semibold text-[#714b67]">Portable</p>
+                  <p class="text-slate-800">+261 34 28 739 91</p>
+                </div>
+              </div>
+
+              <!-- LinkedIn -->
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <div class="h-9 w-9 rounded-md bg-[#f3f4f5] absolute -left-1 top-1 shadow-md" style="box-shadow:0 3px 4px rgba(106,59,92,0.4);"></div>
+                  <div class="relative h-9 w-9 rounded-md border-l-4 border-l-[#714b67] border-t-4 border-t-[#714b67] border-r-4 border-r-[#00c4ff] border-b-4 border-b-[#00c4ff] bg-white flex items-center justify-center text-[#00c4ff] text-sm font-bold shadow-md">
+                    in
+                  </div>
+                </div>
+                <div class="min-w-0">
+                  <p id="label-linkedin" class="font-semibold text-[#714b67]">LinkedIn</p>
+                  <p class="text-slate-800 break-all text-[11px] md:text-xs">
+                    /rojo-valisoa-andrianantenaina
+                  </p>
+                </div>
+              </div>
+
+              <!-- E-mail -->
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <div class="h-9 w-9 rounded-md bg-[#f3f4f5] absolute -left-1 top-1 shadow-md" style="box-shadow:0 3px 4px rgba(106,59,92,0.4);"></div>
+                  <div class="relative h-9 w-9 rounded-md border-l-4 border-l-[#714b67] border-t-4 border-t-[#714b67] border-r-4 border-r-[#ff6d7a] border-b-4 border-b-[#ff6d7a] bg-white flex items-center justify-center text-[#ff6d7a] shadow-[0_2px_4px_rgba(0,0,0,0.35)]">
+                    <svg xmlns='http://www.w3.org/2000/svg' class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+                      <path d="M3 7l9 6 9-6" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="min-w-0">
+                  <p id="label-email" class="font-semibold text-[#714b67]">E-mail</p>
+                  <p class="text-slate-800 break-all text-[11px] md:text-xs">
+                    rojo.valisoa.dev@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENU PRINCIPAL -->
+        <div class="grid gap-8 md:grid-cols-[0.95fr_1.4fr]">
+
+          <!-- COLONNE GAUCHE -->
+          <aside class="space-y-6 text-sm">
+
+            <!-- Formations -->
+            <section class="space-y-2">
+              <div class="relative inline-block">
+                <div class="absolute -left-2 top-2 h-full w-full rounded-md bg-[#f3f4f5] shadow shadow-slate-300"></div>
+                <h2 id="title-formations" class="relative inline-flex items-center rounded-md bg-[#714b67] text-white px-4 py-1 text-xs font-semibold tracking-wide uppercase">
+                  Formations
+                </h2>
+              </div>
+              <ul class="mt-2 space-y-1 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Management opérationnel :</span> certification CCIFM</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Français :</span> DALF C1 - niveau avancé</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Master 1 :</span> Informatique ITUniversity</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Licence :</span> Informatique Esti Antanimena</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Bacc :</span> Série C Lycée LRR Fianarantsoa</span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Compétences -->
+            <section class="space-y-2">
+              <div class="relative inline-block">
+                <div class="absolute -left-2 top-2 h-full w-full rounded-md bg-[#f3f4f5] shadow shadow-slate-300"></div>
+                <h2 id="title-competences" class="relative inline-flex items-center rounded-md bg-[#714b67] text-white px-4 py-1 text-xs font-semibold tracking-wide uppercase">
+                  Compétences
+                </h2>
+              </div>
+              <ul class="mt-2 space-y-1 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Management</span> opérationnel.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Automatisation</span> de tâches.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Odoo</span> fonctionnel v8 à v16.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Développement</span> avancé Odoo.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Migration</span> de version Odoo (code / BDD).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Maintenance</span> applicative en production.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Maintenance</span> serveurs (on-premise, Odoo.sh, Linux).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Méthodes</span> de travail Agile.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Travail</span> en régie et en full remote.</span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Outils -->
+            <section class="space-y-2">
+              <div class="relative inline-block">
+                <div class="absolute -left-2 top-2 h-full w-full rounded-md bg-[#f3f4f5] shadow shadow-slate-300"></div>
+                <h2 id="title-outils" class="relative inline-flex items-center rounded-md bg-[#714b67] text-white px-4 py-1 text-xs font-semibold tracking-wide uppercase">
+                  Outils
+                </h2>
+              </div>
+              <ul class="mt-2 space-y-1 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Odoo</span> v8 à v16.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Linux</span>, Odoo.sh, Odoo on-premise.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">n8n</span> et agents IA.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">GitHub</span>, GitLab, CI/CD.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Python</span>, JavaScript, PostgreSQL.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span><span class="font-semibold">Azure</span>, Jira, Notion.</span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Passions -->
+            <section class="space-y-2">
+              <div class="relative inline-block">
+                <div class="absolute -left-2 top-2 h-full w-full rounded-md bg-[#f3f4f5] shadow shadow-slate-300"></div>
+                <h2 id="title-passions" class="relative inline-flex items-center rounded-md bg-[#714b67] text-white px-4 py-1 text-xs font-semibold tracking-wide uppercase">
+                  Passions
+                </h2>
+              </div>
+              <ul class="mt-2 space-y-1 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span>Les échecs.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span>Les livres.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span>IA enthusiast.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span>Automatisation de tâches avec n8n.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-cvPurple text-[10px] text-[#714b67]">&#10003;</span>
+                  <span>Animés.</span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Logo Odoo -->
+            <div class="pt-8 flex justify-center">
+              <svg class="w-72 h-auto opacity-90" viewBox="0 0 200 60" aria-hidden="true">
+                <g fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- o grenat -->
+                  <circle cx="30" cy="30" r="17" stroke="#714b67" />
+                  <!-- d (tige partant du milieu droit vers le haut et dépassant) -->
+                  <circle cx="78" cy="30" r="17" stroke="#9b9b9b" />
+                  <line x1="95" y1="30" x2="95" y2="4" stroke="#9b9b9b" />
+                  <!-- o o gris -->
+                  <circle cx="126" cy="30" r="17" stroke="#9b9b9b" />
+                  <circle cx="174" cy="30" r="17" stroke="#9b9b9b" />
+                </g>
+              </svg>
+            </div>
+
+          </aside>
+
+          <!-- COLONNE DROITE -->
+          <section class="space-y-5 text-sm">
+            <div>
+              <div class="relative inline-block">
+                <div class="absolute -left-2 top-2 h-full w-full rounded-md bg-[#f3f4f5] shadow shadow-slate-300"></div>
+                <h2 id="title-experiences" class="relative inline-flex items-center rounded-md bg-[#714b67] text-white px-4 py-1 text-xs font-semibold tracking-wide uppercase">
+                  Expériences pro
+                </h2>
+              </div>
+            </div>
+
+            <article class="space-y-2">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-white shadow shadow-slate-300" style="background:linear-gradient(to right,#0f766e 0%,#00a09d 50%,#e0fdf4 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-resp-title">Responsable Développement Informatique</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Materauto S.A</p>
+                <p class="text-xs text-slate-500"><span id="exp-resp-date">Janvier 2026 - Maintenant</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Garant de la performance du département.</li>
+                <li>Gestion, pilotage et maintenance des projets informatiques.</li>
+                <li>Management et encadrement de l'équipe.</li>
+                <li>Garantir la qualité selon la norme ISO 9001.</li>
+              </ul>
+            </article>
+
+            <article class="space-y-2 pt-3 border-t border-slate-200">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-white shadow shadow-slate-300" style="background:linear-gradient(to right,#00a09d 0%,#20c997 55%,#e0fdf8 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-lead-title">Lead Développeur Odoo</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Materauto S.A</p>
+                <p class="text-xs text-slate-500"><span id="exp-lead-date">Février 2024 - Janvier 2026</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Réaliser les développements les plus complexes.</li>
+                <li>Piloter la conception des solutions Odoo.</li>
+                <li>Référent technique du département.</li>
+              </ul>
+            </article>
+
+            <article class="space-y-2 pt-3 border-t border-slate-200">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-white shadow shadow-slate-300" style="background:linear-gradient(to right,#20c997 0%,#2dd4bf 55%,#e5fffb 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-senior-title">Développeur Senior Odoo</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Etech / Arkeup</p>
+                <p class="text-xs text-slate-500"><span id="exp-senior-date">Janv 2023 - Fév 2024</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Interface entre chef de projet, client et équipe DEV.</li>
+                <li>Garant de la qualité du code.</li>
+                <li>Assure l'analyse technique et fonctionnelle.</li>
+              </ul>
+            </article>
+
+            <article class="space-y-2 pt-3 border-t border-slate-200">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-white shadow shadow-slate-300" style="background:linear-gradient(to right,#2dd4bf 0%,#5eead4 50%,#f3fffd 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-conf-title">Développeur Confirmé Odoo</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Etech / Arkeup</p>
+                <p class="text-xs text-slate-500"><span id="exp-conf-date">Juil 2021 - Janv 2023</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Concevoir des solutions adaptées aux besoins clients.</li>
+                <li>Développer et maintenir les modules Odoo.</li>
+                <li>Accompagner les développeurs juniors.</li>
+              </ul>
+            </article>
+
+            <article class="space-y-2 pt-3 border-t border-slate-200">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-white shadow shadow-slate-300" style="background:linear-gradient(to right,#5eead4 0%,#99f6e4 50%,#f9fffe 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-junior-title">Développeur Junior Odoo</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Ingenosya</p>
+                <p class="text-xs text-slate-500"><span id="exp-junior-date">Mars 2021 - Juil 2021</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Support technique et maintenance applicative.</li>
+                <li>Correction de bugs et tests fonctionnels.</li>
+                <li>Participation aux projets d’implémentation Odoo.</li>
+              </ul>
+            </article>
+
+            <article class="space-y-2 pt-3 border-t border-slate-200">
+              <div class="inline-flex w-[360px] px-0 pr-2 py-0 text-2xl font-hand text-[#714b67] shadow shadow-slate-300" style="background:linear-gradient(to right,#e6fbff 0%,#f3fffd 50%,#ffffff 100%); text-shadow:0 2px 4px rgba(0,0,0,0.35);">
+                <span id="exp-alt-title">Alternant Développeur Odoo</span>
+              </div>
+              <div class="mt-1 flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <p class="font-semibold text-slate-900">Ingenosya</p>
+                <p class="text-xs text-slate-500"><span id="exp-alt-date">Mars 2019 - Mars 2021</span></p>
+              </div>
+              <ul class="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                <li>Développements Odoo sous supervision.</li>
+                <li>Participation à l’implémentation de modules standards.</li>
+                <li>Rédaction de cahiers des charges et tests de validation.</li>
+              </ul>
+            </article>
+
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="magic-cursor">👉</div>
+  <div id="cursor-trail"></div>
+
+  <script>
+  (function () {
+    const ids = [
+      'badge-title',
+      'intro-text',
+      'title-formations',
+      'title-competences',
+      'title-outils',
+      'title-passions',
+      'title-experiences',
+      'label-phone',
+      'label-linkedin',
+      'label-email',
+      'exp-resp-title',
+      'exp-lead-title',
+      'exp-senior-title',
+      'exp-conf-title',
+      'exp-junior-title',
+      'exp-alt-title',
+      'exp-resp-date',
+      'exp-lead-date',
+      'exp-senior-date',
+      'exp-conf-date',
+      'exp-junior-date',
+      'exp-alt-date',
+    ];
+
+    const original = {};
+
+    const translationsEn = {
+      'badge-title': 'Odoo Expert',
+      'intro-text':
+        "With solid experience in the ERP ecosystem, I have oriented my career around the <span class='text-[#714b67] font-bold'>implementation</span>, the <span class='text-[#714b67] font-bold'>optimisation</span> and the <span class='text-[#714b67] font-bold'>industrialisation of Odoo</span>. Curious and autonomous, I work across <span class='text-[#714b67] font-bold'>technical</span>, <span class='text-[#714b67] font-bold'>functional</span> and <span class='text-[#714b67] font-bold'>team management</span> topics to improve processes.",
+      'title-formations': 'Education & Certifications',
+      'title-competences': 'Skills',
+      'title-outils': 'Tools',
+      'title-passions': 'Interests',
+      'title-experiences': 'Professional experience',
+      'label-phone': 'Phone',
+      'label-linkedin': 'LinkedIn',
+      'label-email': 'Email',
+      'exp-resp-title': 'Head of Software Development',
+      'exp-lead-title': 'Odoo Lead Developer',
+      'exp-senior-title': 'Senior Odoo Developer',
+      'exp-conf-title': 'Experienced Odoo Developer',
+      'exp-junior-title': 'Junior Odoo Developer',
+      'exp-alt-title': 'Apprentice Odoo Developer',
+      'exp-resp-date': 'Jan 2026 - Present',
+      'exp-lead-date': 'Feb 2024 - Jan 2026',
+      'exp-senior-date': 'Jan 2023 - Feb 2024',
+      'exp-conf-date': 'Jul 2021 - Jan 2023',
+      'exp-junior-date': 'Mar 2021 - Jul 2021',
+      'exp-alt-date': 'Mar 2019 - Mar 2021',
+    };
+
+    const bulletTranslations = {
+      // Formations
+      'Management opérationnel : certification CCIFM': {
+        en: "<span class='font-semibold'>Operational management:</span> CCIFM certification",
+      },
+      'Français : DALF C1 - niveau avancé': {
+        en: "<span class='font-semibold'>French:</span> DALF C1 - advanced level",
+      },
+      'Master 1 : Informatique ITUniversity': {
+        en: "<span class='font-semibold'>Master 1:</span> Computer Science, IT University",
+      },
+      'Licence : Informatique Esti Antanimena': {
+        en: "<span class='font-semibold'>Bachelor&#39;s degree:</span> Computer Science, ESTI Antanimena",
+      },
+      'Bacc : Série C Lycée LRR Fianarantsoa': {
+        en: "<span class='font-semibold'>Baccalaureate:</span> Science track (Series C), LRR High School, Fianarantsoa",
+      },
+
+      // Compétences
+      'Management opérationnel.': { en: 'Operational management.' },
+      'Automatisation de tâches.': { en: 'Task automation.' },
+      'Odoo fonctionnel v8 à v16.': { en: 'Functional expertise on Odoo v8 to v16.' },
+      'Développement avancé Odoo.': { en: 'Advanced Odoo development.' },
+      'Migration de version Odoo (code / BDD).': { en: 'Odoo version migrations (code and database).' },
+      'Maintenance applicative en production.': { en: 'Application maintenance in production.' },
+      'Maintenance serveurs (on-premise, Odoo.sh, Linux).': { en: 'Server maintenance (on-premise, Odoo.sh, Linux).' },
+      'Méthodes de travail Agile.': { en: 'Agile ways of working.' },
+      'Travail en régie et en full remote.': { en: 'On-site consulting and full remote work.' },
+
+      // Outils
+      'Odoo v8 à v16.': { en: 'Odoo v8 to v16.' },
+      'Linux, Odoo.sh, Odoo on-premise.': { en: 'Linux, Odoo.sh, Odoo on-premise.' },
+      'n8n et agents IA.': { en: 'n8n and AI agents.' },
+      'GitHub, GitLab, CI/CD.': { en: 'GitHub, GitLab, CI/CD.' },
+      'Python, JavaScript, PostgreSQL.': { en: 'Python, JavaScript, PostgreSQL.' },
+      'Azure, Jira, Notion.': { en: 'Azure, Jira, Notion.' },
+
+      // Passions
+      'Les échecs.': { en: 'Chess.' },
+      'Les livres.': { en: 'Books.' },
+      'IA enthusiast.': { en: 'AI enthusiast.' },
+      'Automatisation de tâches avec n8n.': { en: 'Task automation with n8n.' },
+      'Animés.': { en: 'Anime.' },
+
+      // Expériences - Responsable
+      'Garant de la performance du département.': { en: 'Responsible for the department&#39;s performance.' },
+      'Gestion, pilotage et maintenance des projets informatiques.': { en: 'Managing and maintaining IT projects.' },
+      "Management et encadrement de l'équipe.": { en: 'Leading and coaching the team.' },
+      'Garantir la qualité selon la norme ISO 9001.': { en: 'Ensuring quality in line with ISO 9001.' },
+
+      // Expériences - Lead
+      'Réaliser les développements les plus complexes.': {
+        en: 'Deliver the most complex development tasks.',
+      },
+      'Piloter la conception des solutions Odoo.': {
+        en: 'Lead the design and development of Odoo solutions.',
+      },
+      'Référent technique du département.': { en: 'Technical reference for the department.' },
+
+      // Expériences - Senior
+      'Interface entre chef de projet, client et équipe DEV.': {
+        en: 'Interface between the project manager, the client and the development team.',
+      },
+      'Garant de la qualité du code.': { en: 'Responsible for code quality.' },
+      "Assure l'analyse technique et fonctionnelle.": {
+        en: 'Perform technical and functional analysis.',
+      },
+
+      // Expériences - Confirmé
+      'Concevoir des solutions adaptées aux besoins clients.': {
+        en: 'Design solutions tailored to customer needs.',
+      },
+      'Développer et maintenir les modules Odoo.': {
+        en: 'Develop and maintain Odoo modules.',
+      },
+      'Accompagner les développeurs juniors.': {
+        en: 'Support and mentor junior developers.',
+      },
+
+      // Expériences - Junior
+      'Support technique et maintenance applicative.': {
+        en: 'Technical support and application maintenance.',
+      },
+      'Correction de bugs et tests fonctionnels.': {
+        en: 'Bug fixing and functional testing.',
+      },
+      'Participation aux projets d’implémentation Odoo.': {
+        en: 'Participation in Odoo implementation projects.',
+      },
+
+      // Expériences - Alternant
+      'Développements Odoo sous supervision.': {
+        en: 'Odoo developments under supervision.',
+      },
+      'Participation à l’implémentation de modules standards.': {
+        en: 'Participation in the implementation of standard modules.',
+      },
+      'Rédaction de cahiers des charges et tests de validation.': {
+        en: 'Drafting specifications and performing validation tests.',
+      },
+    };
+
+    const bulletMap = [];
+
+    function setActiveButton(lang) {
+      const frBtn = document.getElementById('btn-lang-fr');
+      const enBtn = document.getElementById('btn-lang-en');
+      if (!frBtn || !enBtn) return;
+
+      if (lang === 'en') {
+        frBtn.classList.remove('bg-[#714b67]', 'text-white');
+        frBtn.classList.add('bg-white', 'text-slate-700');
+        enBtn.classList.remove('bg-white', 'text-slate-700');
+        enBtn.classList.add('bg-[#714b67]', 'text-white');
+      } else {
+        enBtn.classList.remove('bg-[#714b67]', 'text-white');
+        enBtn.classList.add('bg-white', 'text-slate-700');
+        frBtn.classList.remove('bg-white', 'text-slate-700');
+        frBtn.classList.add('bg-[#714b67]', 'text-white');
+      }
+    }
+
+    function applyLang(lang) {
+      if (lang === 'en') {
+        // Parties identifiées par ID
+        Object.keys(translationsEn).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && translationsEn[id] != null) {
+            el.innerHTML = translationsEn[id];
+          }
+        });
+
+        // Puces et textes divers
+        bulletMap.forEach((item) => {
+          const t = bulletTranslations[item.fr];
+          if (t && t.en) {
+            item.el.innerHTML = t.en;
+          }
+        });
+      } else {
+        // Retour au français pour les éléments avec ID
+        Object.keys(original).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && original[id] != null) {
+            el.innerHTML = original[id];
+          }
+        });
+
+        // Retour au français pour les puces
+        bulletMap.forEach((item) => {
+          item.el.innerHTML = item.frHtml;
+        });
+      }
+
+      setActiveButton(lang);
+    }
+
+    function init() {
+      // Sauvegarde du HTML original pour les éléments ciblés par ID
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          original[id] = el.innerHTML;
+        }
+      });
+
+      // Construction de la map pour les puces
+      const listItems = document.querySelectorAll('ul li');
+      listItems.forEach((li) => {
+        const spans = li.querySelectorAll('span');
+
+        if (spans.length >= 2 && spans[0].innerText.trim() === '✓') {
+          // Cas des puces avec icône "✓" + texte (colonnes de gauche)
+          const textSpan = spans[1];
+          const frText = textSpan.innerText.trim();
+          bulletMap.push({
+            el: textSpan,
+            fr: frText,
+            frHtml: textSpan.innerHTML,
+          });
+        } else {
+          // Cas des listes classiques (Expériences pro)
+          const frText = li.innerText.trim();
+          if (bulletTranslations[frText]) {
+            bulletMap.push({
+              el: li,
+              fr: frText,
+              frHtml: li.innerHTML,
+            });
+          }
+        }
+      });
+    }
+
+    window.switchCvLang = function (lang) {
+      applyLang(lang === 'en' ? 'en' : 'fr');
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      init();
+      setActiveButton('fr');
+    });
+  })();
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cursor = document.getElementById("magic-cursor");
+    const trailContainer = document.getElementById("cursor-trail");
+    const cvContainer = document.getElementById("cv-container");
+
+    let inside = false;
+
+    function setEmoji() {
+      cursor.textContent = inside ? "" : "🖕🏼"; // rien dans le CV, emoji dehors
+      cursor.style.opacity = inside ? "0" : "1";
+    }
+
+    cvContainer.addEventListener("mouseenter", () => {
+      inside = true;
+      setEmoji();
+    });
+
+    cvContainer.addEventListener("mouseleave", () => {
+      inside = false;
+      setEmoji();
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // Déplace l’emoji (quand visible)
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+
+      // Traînée d’étoiles uniquement à l’intérieur du CV
+      if (inside) {
+        createDust(x, y);
+      }
+    });
+
+    function createDust(x, y) {
+      const dust = document.createElement("span");
+      dust.className = "cursor-dust";
+      dust.textContent = "✦";
+
+      dust.style.left = x + "px";
+      dust.style.top = y + "px";
+
+      // Mouvement d’étoile filante
+      const angle = ((Math.random() - 0.5) * Math.PI) / 1.2;
+      const distance = 20 + Math.random() * 20;
+
+      dust.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+      dust.style.setProperty("--dy", `${-Math.abs(Math.sin(angle) * distance)}px`);
+
+      trailContainer.appendChild(dust);
+      setTimeout(() => dust.remove(), 600);
+    }
+
+    // initial
+    setEmoji();
+  });
+  </script>
+
+</body>
+</html>
