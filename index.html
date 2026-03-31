@@ -131,15 +131,17 @@
       cursor: auto !important;
     }
 
-    /* Curseur emoji (uniquement visible hors du CV) */
+    /* Curseur navette (hors CV) */
     #magic-cursor {
       position: fixed;
       top: 0;
       left: 0;
       pointer-events: none;
-      font-size: 40px;
+      font-size: 28px;
       z-index: 9999;
       transition: opacity 0.1s ease-out;
+      transform-origin: center center;
+      will-change: transform, left, top;
     }
 
     /* Zone des étoiles */
@@ -927,71 +929,104 @@
   })();
   </script>
 
-  <!-- Script curseur : désactivé sur mobile -->
+  <!-- Script curseur : navette hors CV, poussière dans le CV -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.getElementById("magic-cursor");
     const trailContainer = document.getElementById("cursor-trail");
     const cvContainer = document.getElementById("cv-container");
 
-    // ✅ Ne pas utiliser le curseur custom sur mobile / pointer "coarse"
-    const isTouchDevice =
-      window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-
+    const isTouchDevice = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
     if (isTouchDevice) {
       if (cursor) cursor.style.display = "none";
       if (trailContainer) trailContainer.style.display = "none";
-      return; // on sort, aucune logique de curseur sur mobile
+      return;
     }
 
     let inside = false;
+    cursor.textContent = "🚀";
 
-    function setEmoji() {
-      cursor.textContent = inside ? "" : "👉🏼"; // rien dans le CV, emoji dehors
+    function getTargetCenter() {
+      const btn = document.getElementById("btn-contact");
+      if (!btn) return null;
+      const r = btn.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+
+    function updateRocket(mouseX, mouseY) {
+      const target = getTargetCenter();
+      if (!target) return;
+      const dx = target.x - mouseX;
+      const dy = target.y - mouseY;
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+      // 🚀 pointe naturellement en haut à droite (~-45°), on compense
+      cursor.style.transform = `translate(-50%, -50%) rotate(${angle + 45}deg)`;
+    }
+
+    function setVisibility() {
       cursor.style.opacity = inside ? "0" : "1";
     }
 
-    cvContainer.addEventListener("mouseenter", () => {
-      inside = true;
-      setEmoji();
-    });
-
-    cvContainer.addEventListener("mouseleave", () => {
-      inside = false;
-      setEmoji();
-    });
+    cvContainer.addEventListener("mouseenter", () => { inside = true;  setVisibility(); });
+    cvContainer.addEventListener("mouseleave", () => { inside = false; setVisibility(); });
 
     document.addEventListener("mousemove", (e) => {
       const x = e.clientX;
       const y = e.clientY;
-
       cursor.style.left = x + "px";
-      cursor.style.top = y + "px";
+      cursor.style.top  = y + "px";
 
       if (inside) {
-        createDust(x, y);
+        createStarDust(x, y);
+      } else {
+        updateRocket(x, y);
+        createRocketTrail(x, y);
       }
     });
 
-    function createDust(x, y) {
+    // ✦ Poussière d'étoiles dans le CV (comportement original)
+    function createStarDust(x, y) {
       const dust = document.createElement("span");
       dust.className = "cursor-dust";
       dust.textContent = "✦";
-
       dust.style.left = x + "px";
-      dust.style.top = y + "px";
-
-      const angle = ((Math.random() - 0.5) * Math.PI) / 1.2;
+      dust.style.top  = y + "px";
+      const angle    = ((Math.random() - 0.5) * Math.PI) / 1.2;
       const distance = 20 + Math.random() * 20;
-
       dust.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
       dust.style.setProperty("--dy", `${-Math.abs(Math.sin(angle) * distance)}px`);
-
       trailContainer.appendChild(dust);
       setTimeout(() => dust.remove(), 600);
     }
 
-    setEmoji();
+    // 🔥 Traîné de la navette hors du CV (part vers l'arrière de la navette)
+    function createRocketTrail(x, y) {
+      const target = getTargetCenter();
+      if (!target) return;
+      const dx  = target.x - x;
+      const dy  = target.y - y;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      if (len < 10) return;
+
+      // Direction opposée à la cible = derrière la navette
+      const backAngle = Math.atan2(-dy, -dx);
+      const spread    = 0.6;
+      const a         = backAngle + (Math.random() - 0.5) * spread;
+      const distance  = 10 + Math.random() * 16;
+
+      const dust = document.createElement("span");
+      dust.className   = "cursor-dust";
+      dust.textContent = Math.random() > 0.4 ? "✦" : "·";
+      dust.style.fontSize = (8 + Math.random() * 8) + "px";
+      dust.style.left  = x + "px";
+      dust.style.top   = y + "px";
+      dust.style.setProperty("--dx", `${Math.cos(a) * distance}px`);
+      dust.style.setProperty("--dy", `${Math.sin(a) * distance}px`);
+      trailContainer.appendChild(dust);
+      setTimeout(() => dust.remove(), 500);
+    }
+
+    setVisibility();
   });
   </script>
 
