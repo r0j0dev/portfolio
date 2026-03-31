@@ -216,12 +216,9 @@
                 <img src="https://media.licdn.com/dms/image/v2/D4E03AQGLKYdXNFR3vA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700635088619?e=2147483647&v=beta&t=7afRIWZvbAnF84m4Byo4JMDgwL-JeCrQL75qX5eqdeQ" alt="Rojo Valisoa" class="h-full w-full object-cover" />
               </div>
               <!-- Switch langue -->
-              <div class="mt-3 flex justify-center gap-2 text-xs">
-                <button type="button" onclick="switchCvLang('fr')" id="btn-lang-fr" class="px-3 py-1 rounded-full border border-[#714b67] bg-[#714b67] text-white font-semibold shadow-sm">
-                  Français
-                </button>
-                <button type="button" onclick="switchCvLang('en')" id="btn-lang-en" class="px-3 py-1 rounded-full border border-slate-300 bg-white text-slate-700 font-semibold shadow-sm">
-                  English
+              <div class="mt-3 flex justify-center text-xs">
+                <button type="button" id="btn-lang-toggle" onclick="toggleCvLang()" class="px-3 py-1 rounded-full border border-[#714b67] bg-[#714b67] text-white font-semibold shadow-sm">
+                  Changer de langue
                 </button>
               </div>
             </div>
@@ -840,23 +837,18 @@
 
     const bulletMap = [];
 
-    function setActiveButton(lang) {
-      const frBtn = document.getElementById('btn-lang-fr');
-      const enBtn = document.getElementById('btn-lang-en');
-      if (!frBtn || !enBtn) return;
+    let currentLang = 'fr';
 
-      if (lang === 'en') {
-        frBtn.classList.remove('bg-[#714b67]', 'text-white');
-        frBtn.classList.add('bg-white', 'text-slate-700');
-        enBtn.classList.remove('bg-white', 'text-slate-700');
-        enBtn.classList.add('bg-[#714b67]', 'text-white');
-      } else {
-        enBtn.classList.remove('bg-[#714b67]', 'text-white');
-        enBtn.classList.add('bg-white', 'text-slate-700');
-        frBtn.classList.remove('bg-white', 'text-slate-700');
-        frBtn.classList.add('bg-[#714b67]', 'text-white');
-      }
+    function setActiveButton(lang) {
+      currentLang = lang;
+      const btn = document.getElementById('btn-lang-toggle');
+      if (!btn) return;
+      btn.textContent = lang === 'en' ? 'Switch language' : 'Changer de langue';
     }
+
+    window.toggleCvLang = function () {
+      switchCvLang(currentLang === 'fr' ? 'en' : 'fr');
+    };
 
     function applyLang(lang) {
       if (lang === 'en') {
