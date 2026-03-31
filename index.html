@@ -126,9 +126,9 @@
       }
     }
 
-    /* Dans le CV : on remet le curseur normal */
+    /* Dans le CV : curseur masqué, la navette prend le relais */
     #cv-container {
-      cursor: auto !important;
+      cursor: none !important;
     }
 
     /* Curseur navette (hors CV) */
@@ -968,31 +968,25 @@
       setTimeout(() => el.remove(), duration);
     }
 
-    function setVisibility() {
-      cursor.style.opacity = inside ? "0" : "1";
-    }
-
-    cvContainer.addEventListener("mouseenter", () => { inside = true;  setVisibility(); });
-    cvContainer.addEventListener("mouseleave", () => { inside = false; setVisibility(); });
+    cvContainer.addEventListener("mouseenter", () => { inside = true; });
+    cvContainer.addEventListener("mouseleave", () => { inside = false; });
 
     document.addEventListener("mousemove", (e) => {
       const x = e.clientX;
       const y = e.clientY;
+      const target = getTargetCenter();
+      if (!target) return;
+      const dx = target.x - x;
+      const dy = target.y - y;
+      // Rotation : 🚀 pointe naturellement à ~-45° de l'axe x, offset +45 pour compenser
+      const toAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+      cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${toAngle + 45}deg)`;
 
       if (inside) {
-        // Position via transform pour rester cohérent, même si curseur masqué
-        cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
         const a = ((Math.random() - 0.5) * Math.PI) / 1.2;
         const d = 20 + Math.random() * 20;
         spawnDust(x, y, Math.cos(a) * d, -Math.abs(Math.sin(a) * d), "✦", null, 600);
       } else {
-        const target = getTargetCenter();
-        if (!target) return;
-        const dx = target.x - x;
-        const dy = target.y - y;
-        // Rotation : 🚀 pointe naturellement à ~-45° de l'axe x, offset +45 pour compenser
-        const toAngle = Math.atan2(dy, dx) * (180 / Math.PI);
-        cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${toAngle + 45}deg)`;
         const len = Math.sqrt(dx * dx + dy * dy);
         if (len >= 10) {
           const a = Math.atan2(-dy, -dx) + (Math.random() - 0.5) * 0.6;
@@ -1003,7 +997,7 @@
       }
     });
 
-    setVisibility();
+    cursor.style.opacity = "1";
   });
   </script>
 
