@@ -139,9 +139,10 @@
       pointer-events: none;
       font-size: 28px;
       z-index: 9999;
+      opacity: 0;
       transition: opacity 0.1s ease-out;
       transform-origin: center center;
-      will-change: transform, left, top;
+      will-change: transform;
     }
 
     /* Zone des étoiles */
@@ -953,14 +954,18 @@
       return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     }
 
-    function updateRocket(mouseX, mouseY) {
-      const target = getTargetCenter();
-      if (!target) return;
-      const dx = target.x - mouseX;
-      const dy = target.y - mouseY;
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-      // 🚀 pointe naturellement en haut à droite (~-45°), on compense
-      cursor.style.transform = `translate(-50%, -50%) rotate(${angle + 45}deg)`;
+    // Créer une particule de poussière positionnée en (x,y) avec direction (dx,dy)
+    function spawnDust(x, y, dx, dy, text, fontSize, duration) {
+      const el = document.createElement("span");
+      el.className   = "cursor-dust";
+      el.textContent = text;
+      el.style.left  = x + "px";
+      el.style.top   = y + "px";
+      if (fontSize) el.style.fontSize = fontSize + "px";
+      el.style.setProperty("--dx", dx + "px");
+      el.style.setProperty("--dy", dy + "px");
+      trailContainer.appendChild(el);
+      setTimeout(() => el.remove(), duration);
     }
 
     function setVisibility() {
@@ -973,58 +978,30 @@
     document.addEventListener("mousemove", (e) => {
       const x = e.clientX;
       const y = e.clientY;
-      cursor.style.left = x + "px";
-      cursor.style.top  = y + "px";
 
       if (inside) {
-        createStarDust(x, y);
+        // Position via transform pour rester cohérent, même si curseur masqué
+        cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        const a = ((Math.random() - 0.5) * Math.PI) / 1.2;
+        const d = 20 + Math.random() * 20;
+        spawnDust(x, y, Math.cos(a) * d, -Math.abs(Math.sin(a) * d), "✦", null, 600);
       } else {
-        updateRocket(x, y);
-        createRocketTrail(x, y);
+        const target = getTargetCenter();
+        if (!target) return;
+        const dx = target.x - x;
+        const dy = target.y - y;
+        // Rotation : 🚀 pointe naturellement à ~-45° de l'axe x, offset +45 pour compenser
+        const toAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+        cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${toAngle + 45}deg)`;
+        const len = Math.sqrt(dx * dx + dy * dy);
+        if (len >= 10) {
+          const a = Math.atan2(-dy, -dx) + (Math.random() - 0.5) * 0.6;
+          const d = 10 + Math.random() * 16;
+          spawnDust(x, y, Math.cos(a) * d, Math.sin(a) * d,
+            Math.random() > 0.4 ? "✦" : "·", 8 + Math.random() * 8, 500);
+        }
       }
     });
-
-    // ✦ Poussière d'étoiles dans le CV (comportement original)
-    function createStarDust(x, y) {
-      const dust = document.createElement("span");
-      dust.className = "cursor-dust";
-      dust.textContent = "✦";
-      dust.style.left = x + "px";
-      dust.style.top  = y + "px";
-      const angle    = ((Math.random() - 0.5) * Math.PI) / 1.2;
-      const distance = 20 + Math.random() * 20;
-      dust.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
-      dust.style.setProperty("--dy", `${-Math.abs(Math.sin(angle) * distance)}px`);
-      trailContainer.appendChild(dust);
-      setTimeout(() => dust.remove(), 600);
-    }
-
-    // 🔥 Traîné de la navette hors du CV (part vers l'arrière de la navette)
-    function createRocketTrail(x, y) {
-      const target = getTargetCenter();
-      if (!target) return;
-      const dx  = target.x - x;
-      const dy  = target.y - y;
-      const len = Math.sqrt(dx * dx + dy * dy);
-      if (len < 10) return;
-
-      // Direction opposée à la cible = derrière la navette
-      const backAngle = Math.atan2(-dy, -dx);
-      const spread    = 0.6;
-      const a         = backAngle + (Math.random() - 0.5) * spread;
-      const distance  = 10 + Math.random() * 16;
-
-      const dust = document.createElement("span");
-      dust.className   = "cursor-dust";
-      dust.textContent = Math.random() > 0.4 ? "✦" : "·";
-      dust.style.fontSize = (8 + Math.random() * 8) + "px";
-      dust.style.left  = x + "px";
-      dust.style.top   = y + "px";
-      dust.style.setProperty("--dx", `${Math.cos(a) * distance}px`);
-      dust.style.setProperty("--dy", `${Math.sin(a) * distance}px`);
-      trailContainer.appendChild(dust);
-      setTimeout(() => dust.remove(), 500);
-    }
 
     setVisibility();
   });
